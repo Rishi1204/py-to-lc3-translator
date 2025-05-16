@@ -141,14 +141,23 @@ class LC3Translator:
         asm_dir = "asm"
         os.makedirs(asm_dir, exist_ok=True)
 
+        valid_filenames = []
         for filename in filenames:
             if not filename.endswith(".py"):
                 continue
+            filepath = os.path.join(python_dir, filename)
+            if os.path.exists(filepath):
+                valid_filenames.append(filename)
+            else:
+                print(f"File not found: {filepath}")
+
+        if not valid_filenames:
+            print("No valid files to translate.")
+            return
+
+        for filename in valid_filenames:
 
             filepath = os.path.join(python_dir, filename)
-            if not os.path.exists(filepath):
-                print(f"File not found: {filepath}")
-                continue
 
             with open(filepath, "r") as f:
                 code = f.read()
@@ -191,8 +200,3 @@ class LC3Translator:
         """
         tree = parse(code)
         print(dump(tree, indent=4, include_attributes=False))
-
-
-
-translator = LC3Translator()
-translator.translate_all()

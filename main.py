@@ -8,6 +8,7 @@ def main():
         translator.translate_all()
     else:
         # Arguments provided: translate only the specified files
+        print(sys.argv[1:])
         translator.translate_selected(sys.argv[1:])
 
 if __name__ == "__main__":

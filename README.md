@@ -43,7 +43,7 @@ Each translated `.asm` file will be saved with the same name in the `asm/` direc
 
 ## Requirements
 
-- Python 3.10 or later (for match statements and modern type hints)
+- Python 3.10 or later (for match statements and modern type hint syntax such as `int | str`)
 - No external packages required (uses the built-in `ast` module)
 
 ---

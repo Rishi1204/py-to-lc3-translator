@@ -627,7 +627,7 @@ class FunctionTranslator:
             dst_reg = self.find_register(var, avoid_registers=avoid_registers)
         
         if dst_reg is not None:
-            print(self.reg_var_map, self.var_reg_map)
+            # print(self.reg_var_map, self.var_reg_map)
             if dst_reg in self.reg_var_map:
                 self.subroutine.append(f"LDR R{dst_reg}, R6, 0 ;; R{dst_reg} = {unparse(call_obj)}")
             else:
